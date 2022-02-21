@@ -14,7 +14,7 @@ echo "Staring docker";
 sudo loginctl enable-linger $(whoami)
 echo "sudo chmod 666 /var/run/docker.sock";
 sudo chmod 666 /var/run/docker.sock
-sudo wget https://raw.githubusercontent.com/nabad600/multipass-script/main/override.conf
+sudo wget https://raw.githubusercontent.com/deck-app/multipass-install/master/override.conf
 sudo mkdir -p /etc/systemd/system/docker.service.d
 sudo cp override.conf /etc/systemd/system/docker.service.d/override.conf
 sudo rm -rf override.conf
