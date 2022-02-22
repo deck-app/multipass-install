@@ -25,7 +25,7 @@ neofetch
 echo "All service restart.";
 sudo systemctl daemon-reload
 sudo systemctl restart docker.service
-sudo service autofs restart
+sudo service autofs start
 while [ ! -f /etc/auto.master ];
 do
     sleep 1
