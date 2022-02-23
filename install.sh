@@ -1,6 +1,5 @@
 #!/bin/bash
 # Package checking, Download and Install Multipass package
-set -x
 blanko="";
 pkg=`which multipass`
 if [ "$pkg" == "$blanko" ]; then
