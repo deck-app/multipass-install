@@ -31,8 +31,4 @@ done
 sudo chown $USER:$USER /etc/auto.master
 sudo echo "/- auto.projects" >> /etc/auto.master
 sudo sudo chown root:root /etc/auto.master
-if [ -f /home/`whoami`/Home/auto.projects ];
-then
-    sudo rm -rf /home/`whoami`/Home/auto.projects
-fi
 echo "All set and done.";
