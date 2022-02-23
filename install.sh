@@ -25,6 +25,6 @@ if [ -f auto.projects ];
 then
     sudo rm -rf auto.projects
 fi
-echo /home/ubuntu/`multipass exec deck-app whoami` -fstype=nfs,rw,nosuid,proto=tcp,resvport `sh ip.sh`:/Users/`whoami` > auto.projects
+echo /home/ubuntu/`multipass exec deck-app whoami` -fstype=nfs,rw,nosuid,proto=tcp,resvport `ifconfig -l | xargs -n1 ipconfig getifaddr`:/Users/`whoami` > auto.projects
 multipass exec deck-app -- bash -c "sudo touch /etc/auto.projects && sudo chown ubuntu:ubuntu /etc/auto.projects && curl https://raw.githubusercontent.com/deck-app/multipass-install/master/multipass-install.sh | sh "
 
