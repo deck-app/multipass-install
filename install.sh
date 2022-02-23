@@ -1,5 +1,6 @@
 #!/bin/bash
 # Package checking, Download and Install Multipass package
+set -x
 blanko="";
 pkg=`which multipass`
 if [ "$pkg" == "$blanko" ]; then
@@ -23,5 +24,8 @@ multipass set client.gui.autostart=false
 multipass exec deck-app sudo touch /etc/auto.projects
 multipass exec deck-app sudo chown `multipass exec deck-app whoami`:`multipass exec deck-app whoami` /etc/auto.projects
 echo /home/ubuntu/`multipass exec deck-app whoami` -fstype=nfs,rw,nosuid,proto=tcp,resvport `ifconfig -l | xargs -n1 ipconfig getifaddr`:/Users/`whoami` | multipass exec deck-app tee /etc/auto.projects
-multipass exec deck-app -- bash -c "sudo touch /etc/auto.projects && sudo chown ubuntu:ubuntu /etc/auto.projects && curl https://raw.githubusercontent.com/deck-app/multipass-install/master/multipass-install.sh | sh "
+multipass exec deck-app -- bash -c "sudo touch /etc/auto.projects &&
+                                    sudo chown `multipass exec deck-app whoami`:`multipass exec deck-app whoami` /etc/auto.projects && 
+                                    sudo chown ubuntu:ubuntu /etc/auto.projects && 
+                                    curl https://raw.githubusercontent.com/deck-app/multipass-install/master/multipass-install.sh | sh "
 
