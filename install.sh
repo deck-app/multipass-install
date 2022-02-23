@@ -25,6 +25,6 @@ multipass set client.gui.autostart=false
 # echo /home/ubuntu/`multipass exec deck-app whoami` -fstype=nfs,rw,nosuid,proto=tcp,resvport `ifconfig -l | xargs -n1 ipconfig getifaddr`:/Users/`whoami` | multipass exec deck-app 'tee ~/auto.projects'
 multipass exec deck-app -- bash -c "sudo touch /etc/auto.projects && 
                                     sudo chown `multipass exec deck-app whoami`:`multipass exec deck-app whoami` /etc/auto.projects && 
-                                    echo /home/ubuntu/`whoami` -fstype=nfs,rw,nosuid,proto=tcp,resvport `ifconfig -l | xargs -n1 ipconfig getifaddr`:/Users/`whoami` | tee /etc/auto.projects
+                                    echo /home/ubuntu/`whoami` -fstype=nfs,rw,nolock,nosuid,proto=tcp,resvport `ifconfig -l | xargs -n1 ipconfig getifaddr`:/Users/`whoami` | tee /etc/auto.projects
                                     curl https://raw.githubusercontent.com/deck-app/multipass-install/master/multipass-install.sh | sh "
 
