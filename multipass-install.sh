@@ -24,11 +24,7 @@ neofetch
 echo "All service restart.";
 sudo systemctl daemon-reload
 sudo systemctl restart docker.service
-while [ ! -f /etc/auto.master ];
-do
-    sleep 1
-done
 sudo chown $USER:$USER /etc/auto.master
 sudo echo "/- auto.projects" >> /etc/auto.master
-sudo sudo chown root:root /etc/auto.master
+sudo chown root:root /etc/auto.master
 echo "All set and done.";
