@@ -19,12 +19,12 @@ sudo mkdir -p /etc/systemd/system/docker.service.d
 sudo cp override.conf /etc/systemd/system/docker.service.d/override.conf
 sudo rm -rf override.conf
 sudo chown root:root /etc/auto.projects
-clear
-neofetch
-echo "All service restart.";
+# clear
+# neofetch
+echo "Reloading systemd manager configuration ...";
 sudo systemctl daemon-reload
 sudo systemctl restart docker.service
 sudo chown $USER:$USER /etc/auto.master
 sudo echo "/- auto.projects" >> /etc/auto.master
 sudo chown root:root /etc/auto.master
-echo "All set and done.";
+echo "Installation has finished";
